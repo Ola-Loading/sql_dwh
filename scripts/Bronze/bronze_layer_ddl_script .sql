@@ -1,4 +1,19 @@
+/*
+================================================================================================
+Sql statements that create Bronze layer table definitions
+================================================================================================
+
+SCRIPT PURPOSE:
+This script contains a series of statements that will first check for the presence of tables within the database 'DataWarehouse'
+if found these tables will first be dropped and then recreated with the table definitions shown. This script should be run before the 
+SP_bronze_layer_load_tables.sql script.
+
+Extension: 
 -- AUTOMATE SCRIPT GENERATION WITH .PY FILE AS REPEATED LOGIC 
+*/
+
+USE DataWarehouse;
+
 IF OBJECT_ID('BRONZE.AIRLINE_ACCIDENTS','U') IS NOT NULL
     DROP TABLE BRONZE.AIRLINE_ACCIDENTS;
 
@@ -7,7 +22,8 @@ Event_ID VARCHAR(80),
 Investigation_Type	VARCHAR(80),
 Accident_Number	VARCHAR(80),
 Event_Date	VARCHAR(80),
-Location VARCHAR(80),
+Location_1 VARCHAR(80),
+Location_2 VARCHAR(80),
 Country	VARCHAR(80),
 Latitude	VARCHAR(80),
 Longitude	VARCHAR(80),
