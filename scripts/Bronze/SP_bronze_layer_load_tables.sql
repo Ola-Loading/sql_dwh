@@ -36,10 +36,11 @@ BEGIN
         SET @starttime = GETDATE();
 
         BULK INSERT [BRONZE].[AIRLINE_ACCIDENTS]
-        FROM '/datasets/aviation-accidents-and-incidents-ntsb-faa-waas/airline_accidents.csv'
+        FROM '/datasets/aviation-accidents-and-incidents-ntsb-faa-waas/airline_accidents.tsv'
         WITH (
             FIRSTROW = 2,
-            FIELDTERMINATOR = ',',
+            FIELDTERMINATOR = '\t',
+            ROWTERMINATOR = '\n',
             TABLOCK
         );
 
@@ -56,10 +57,11 @@ BEGIN
         PRINT 'INSERTING INTO TABLE:[BRONZE].[FAA_INCIDENTS_DATA]';
         SET @starttime = GETDATE();
         BULK INSERT [BRONZE].[FAA_INCIDENTS_DATA]
-        FROM '/datasets/aviation-accidents-and-incidents-ntsb-faa-waas/faa_incidents_data.csv'
+        FROM '/datasets/aviation-accidents-and-incidents-ntsb-faa-waas/faa_incidents_data.tsv'
         WITH (
             FIRSTROW = 2,
-            FIELDTERMINATOR = ',',
+            FIELDTERMINATOR = '\t',
+            ROWTERMINATOR = '\n',
             TABLOCK
         );
         SET @endtime = GETDATE();
@@ -75,10 +77,11 @@ BEGIN
         PRINT 'INSERTING INTO TABLE:[BRONZE].[NTSB_AVIATION_DATA]';
         SET @starttime = GETDATE();
         BULK INSERT [BRONZE].[NTSB_AVIATION_DATA]
-        FROM '/datasets/aviation-accidents-and-incidents-ntsb-faa-waas/ntsb_aviation_data.csv'
+        FROM '/datasets/aviation-accidents-and-incidents-ntsb-faa-waas/ntsb_aviation_data.tsv'
         WITH (
             FIRSTROW = 2,
-            FIELDTERMINATOR = ',',
+            FIELDTERMINATOR = '\t',
+            ROWTERMINATOR = '\n',
             TABLOCK
         );
 
@@ -96,10 +99,11 @@ BEGIN
 
         SET @starttime = GETDATE();
         BULK INSERT [BRONZE].[WORLD_AIRCRAFT_ACCIDENT_SUMMARY]
-        FROM '/datasets/aviation-accidents-and-incidents-ntsb-faa-waas/world_aircraft_accident_summary.csv'
+        FROM '/datasets/aviation-accidents-and-incidents-ntsb-faa-waas/world_aircraft_accident_summary.tsv'
         WITH (
             FIRSTROW = 2,
-            FIELDTERMINATOR = ',',
+            FIELDTERMINATOR = '\t',
+            ROWTERMINATOR = '\n',
             TABLOCK
         );
 
@@ -123,11 +127,6 @@ BEGIN
     END CATCH 
 
 END 
-
-
-
-
-
 
 
 
