@@ -1,11 +1,11 @@
-CREATE FUNCTION dbo.CleanAirportCode
+CREATE OR ALTER FUNCTION dbo.CleanAirportCode
 (
-    @Code VARCHAR(100)
+    @Code NVARCHAR(100)
 )
-RETURNS VARCHAR(100)
+RETURNS NVARCHAR(100)
 AS
 BEGIN
-    DECLARE @Cleaned VARCHAR(100)
+    DECLARE @Cleaned NVARCHAR(100)
 
     -- Step 1: Basic cleanup and NULL handling
     IF @Code IS NULL OR 
@@ -37,3 +37,4 @@ BEGIN
 
     RETURN @Cleaned
 END
+
