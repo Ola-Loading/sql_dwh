@@ -113,15 +113,76 @@ BEGIN
     IF RIGHT(@Cleaned, 4) = ' INT'
         SET @Cleaned = LEFT(@Cleaned, LEN(@Cleaned) - 4) + ' INTERNATIONAL';
 
+     --INTERNATI 
+    SET @Cleaned = REPLACE(@Cleaned, 'INTERNATI', 'INTERNATIONAL');
+    IF RIGHT(@Cleaned, 9) = 'INTERNATI'
+        SET @Cleaned = LEFT(@Cleaned, LEN(@Cleaned) - 9) + 'INTERNATIONAL';
+
+     --INTERANTIONAL
+    SET @Cleaned = REPLACE(@Cleaned, 'INTERANTIONAL ', 'INTERNATIONAL ');
+    IF RIGHT(@Cleaned, 13) = 'INTERANTIONAL'
+        SET @Cleaned = LEFT(@Cleaned, LEN(@Cleaned) - 13) + 'INTERNATIONAL';
+
+    --INTERN
+    SET @Cleaned = REPLACE(@Cleaned, 'INTERN ', 'INTERNATIONAL ');
+    IF RIGHT(@Cleaned, 7) = ' INTERN'
+        SET @Cleaned = LEFT(@Cleaned, LEN(@Cleaned) - 7) + ' INTERNATIONAL';
+
+    --INT'
+    SET @Cleaned = REPLACE(@Cleaned, 'INT'' ', 'INTERNATIONAL ');
+    IF RIGHT(@Cleaned, 5) = ' INT'''
+        SET @Cleaned = LEFT(@Cleaned, LEN(@Cleaned) - 5) + ' INTERNATIONAL';
+
+    --INTNTL
+    SET @Cleaned = REPLACE(@Cleaned, 'INTNTL ', 'INTERNATIONAL ');
+    IF RIGHT(@Cleaned, 6) = 'INTNTL'
+        SET @Cleaned = LEFT(@Cleaned, LEN(@Cleaned) - 6) + 'INTERNATIONAL';
+    
+    --INTERANTIONAL
+    SET @Cleaned = REPLACE(@Cleaned, 'INTRANATIONAL ', 'INTERNATIONAL ');
+    IF RIGHT(@Cleaned, 13) = 'INTRANATIONAL'
+        SET @Cleaned = LEFT(@Cleaned, LEN(@Cleaned) - 13) + 'INTERNATIONAL';
+    
+    --INTERANTIONAL
+    SET @Cleaned = REPLACE(@Cleaned, 'INTERNATL ', 'INTERNATIONAL ');
+    IF RIGHT(@Cleaned, 9) = 'INTERNATL'
+        SET @Cleaned = LEFT(@Cleaned, LEN(@Cleaned) - 9) + 'INTERNATIONAL';
+    
+    --INTERN'L
+    SET @Cleaned = REPLACE(@Cleaned, 'INTERN''L ', 'INTERNATIONAL ');
+    IF RIGHT(@Cleaned, 8) = 'INTERN''L'
+        SET @Cleaned = LEFT(@Cleaned, LEN(@Cleaned) - 8) + 'INTERNATIONAL';
+
+    --INTL'
+    SET @Cleaned = REPLACE(@Cleaned, 'INTL'' ', 'INTERNATIONAL ');
+    IF RIGHT(@Cleaned, 5) = 'INTL'''
+        SET @Cleaned = LEFT(@Cleaned, LEN(@Cleaned) - 5) + 'INTERNATIONAL';
+
+    --INTERANNATIONAL
+    SET @Cleaned = REPLACE(@Cleaned, 'INTERANNATIONAL ', 'INTERNATIONAL ');
+    IF RIGHT(@Cleaned, 15) = 'INTERANNATIONAL'
+        SET @Cleaned = LEFT(@Cleaned, LEN(@Cleaned) - 15) + 'INTERNATIONAL';
+
+    --INTN'T
+    SET @Cleaned = REPLACE(@Cleaned, 'INTN''T ', 'INTERNATIONAL ');
+    IF RIGHT(@Cleaned, 6) = 'INTN''T'
+        SET @Cleaned = LEFT(@Cleaned, LEN(@Cleaned) - 6) + 'INTERNATIONAL';
+
+    
+
     -- === INTERCONTINENTAL variant ===
 
     SET @Cleaned = REPLACE(@Cleaned, 'INTERCONT ', 'INTERNCONTINENTAL ');
     IF RIGHT(@Cleaned, 9) = 'INTERCONT'
         SET @Cleaned = LEFT(@Cleaned, LEN(@Cleaned) - 9) + 'INTERNCONTINENTAL';
 
-
+    -- INTERCONT'L
+    SET @Cleaned = REPLACE(@Cleaned, 'INTERCONT''L ', 'INTERNCONTINENTAL ');
+    IF RIGHT(@Cleaned, 11) = 'INTERCONT''L'
+        SET @Cleaned = LEFT(@Cleaned, LEN(@Cleaned) - 11) + 'INTERNCONTINENTAL';
 
 
     RETURN @Cleaned
 END
+
 
